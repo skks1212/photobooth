@@ -109,7 +109,9 @@ if (isset($_POST["submit"])) {
             <option value="1" <?php if ($type == 1) echo "selected"; ?>>Polaroid</option>
             <option value="2" <?php if ($type == 2) echo "selected"; ?>>Film Strip</option>
         </select>
-        <textarea name="notes" id="" cols="30" rows="10"><?php echo $notes; ?></textarea>
+        <br>
+        <br>
+        <textarea name="notes" placeholder="notes"><?php echo $notes; ?></textarea>
         <br>
         <br>
         Raw Files
