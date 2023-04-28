@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
 
 ?>
 
-<table>
+<table border="1" style="width:100%">
     <thead>
         <tr>
             <th>
