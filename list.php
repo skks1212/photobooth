@@ -73,7 +73,7 @@ if (isset($_POST["submit"])) {
                 <td>
                     <a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a>
                     <a href="files.php?id=<?php echo $row['id']; ?>">Files</a>
-                    <form action="" method="post">
+                    <form action="" method="post" style="display:inline-block;">
                         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                         <input type="submit" name="submit" value="Delete">
                     </form>
