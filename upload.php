@@ -37,7 +37,7 @@ $sql .= "VALUES ('$name', '$phone', '$price', '$payment_method', '$folder_name')
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
     $conn->close();
-    header("Location: index.html");
+    //header("Location: index.html");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
     $conn->close();
