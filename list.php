@@ -14,6 +14,12 @@ $password = $_SERVER['DB_PASS'];
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+if (isset($_POST["submit"])) {
+    $id = $_POST['id'];
+    $sql = "DELETE FROM orders WHERE id = $id";
+    $result = $conn->query($sql);
+}
+
 ?>
 
 <table>
@@ -67,7 +73,10 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                 <td>
                     <a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a>
                     <a href="files.php?id=<?php echo $row['id']; ?>">Files</a>
-                    <a href="delete.php?id=<?php echo $row['id']; ?>">Delete</a>
+                    <form action="" method="post">
+                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                        <input type="submit" name="submit" value="Delete">
+                    </form>
                 </td>
             </tr>
         <?php
