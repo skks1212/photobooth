@@ -1,9 +1,9 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$dbname = "photobooth";
-$password = "";
+$servername = $_SERVER['DB_HOST'];
+$username = $_SERVER['DB_USER'];
+$dbname = $_SERVER['DB_DB'];
+$password = $_SERVER['DB_PASS'];
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

@@ -1,0 +1,32 @@
+Options -Indexes
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^(.*)$ $1.php
+
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.html -f 
+RewriteRule ^([^/]+)/?$ $1.html [L]
+
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+RewriteRule ^([^/]+)/([^/]+)/?$ $1.php?media_id=$2 [L,QSA]
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Credential "true"
+    Header set Access-Control-Allow-Methods "GET,HEAD,OPTIONS,POST,PUT"
+    Header set Access-Control-Allow-Headers "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Authorization, Access-Control-Request-Headers"
+</IfModule>
+
+
+<IfModule mod_env.c>
+    SetEnv DB_HOST localhost
+    SetEnv DB_USER root
+    SetEnv DB_PASS 
+    SetEnv DB_DB photobooth
+</IfModule>
