@@ -12,6 +12,7 @@ $price = $_POST['price'];
 $payment_method = $_POST['payment_method'];
 $notes = $_POST['notes'];
 $type = $_POST['type'];
+$paid = $_POST['paid'];
 
 $folder_root = "photos";
 $folder_name = $folder_root . "/" . str_replace(" ", "_", $name) . "_" . time();
@@ -33,8 +34,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO orders (name, phone, price, payment_method, folder_name, notes, type) " .
-    "VALUES ('$name', '$phone', '$price', '$payment_method', '$folder_name', '$notes', '$type')";
+$sql = "INSERT INTO orders (name, phone, price, payment_method, folder_name, notes, type, paid)
+        VALUES ('$name', '$phone', '$price', '$payment_method', '$folder_name', '$notes', '$type', '$paid')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";

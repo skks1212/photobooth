@@ -5,7 +5,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
 $servername = $_SERVER['DB_HOST'];
 $username = $_SERVER['DB_USER'];
 $dbname = $_SERVER['DB_DB'];
@@ -36,6 +35,9 @@ if (isset($_POST["submit"])) {
             </th>
             <th>
                 Payment Method
+            </th>
+            <th>
+                Paid
             </th>
             <th>
                 Type
@@ -70,6 +72,15 @@ if (isset($_POST["submit"])) {
                 <td>
                     <?php echo $row['payment_method']; ?>
                 </td>
+                <th>
+                    <?php
+                    if ($row['paid'] == 1) {
+                        echo "Yes";
+                    } else {
+                        echo "No";
+                    }
+                    ?>
+                </th>
                 <td>
                     <?php
                     if ($row['type'] == 2) {
