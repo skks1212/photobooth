@@ -99,10 +99,7 @@ if (isset($_POST["submit"])) {
     <form method="post" enctype="multipart/form-data">
         <input type="text" placeholder="name" name="name" value="<?php echo $name; ?>">
         <input type="text" placeholder="phone" name="phone" value="<?php echo $phone; ?>">
-        <select name="price">
-            <option value="50" <?php if ($price == 50) echo "selected"; ?>>50</option>
-            <option value="90" <?php if ($price == 90) echo "selected"; ?>>90</option>
-        </select>
+        <input type="number" placeholder="Price" name="price" value="<?php echo $price; ?>">
         <select name="payment_method">
             <option value="cash" <?php if ($payment_method == "cash") echo "selected"; ?>>Cash</option>
             <option value="upi" <?php if ($payment_method == "upi") echo "selected"; ?>>UPI</option>
