@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Slideshow</title>
+    <style>
+        /* Style the image container */
+        .image-container {
+            height: 600px;
+            width: 600px;
+            position: relative;
+            margin: auto;
+        }
+
+        .image-wrapper {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Style the images */
+        .image-container img {
+            height: 100%;
+            max-width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Show the first image */
+        .image-container img:first-child {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image-wrapper">
+        <div class="image-container">
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Function to update the slideshow with new photos
+            function updateSlideshow() {
+                $.getJSON('slideshow.php', function (data) {
+                    // Get the image container element
+                    var container = $('.image-container');
+
+                    // Remove all existing images
+                    container.empty();
+
+                    // Loop through the photo paths and create new images
+                    for (var i = 0; i < data.length; i++) {
+                        var img = $('<img>').attr('src', data[i]);
+                        container.append(img);
+                    }
+
+                    // Show the first image
+                    container.find('img:first-child').css('opacity', 1);
+
+                    // Start the slideshow
+                    setInterval(function () {
+                        // Get the current visible image
+                        var current = container.find('img:visible');
+
+                        // Get the next image or loop back to the first image if we're at the end
+                        var next = current.next('img').length ? current.next('img') : container.find('img:first-child');
+
+                        // Fade out the current image and fade in the next image
+                        current.css('opacity', 0);
+                        next.css('opacity', 1);
+                    }, 5000);
+                });
+            }
+
+            // Call the updateSlideshow function immediately and then every 5 seconds
+            updateSlideshow();
+            setInterval(updateSlideshow, 20000);
+        });
+    </script>
+</body>
+
+</html>
