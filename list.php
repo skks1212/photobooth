@@ -93,4 +93,8 @@ if (isset($_POST["submit"])) {
 
 <br>
 <br>
+Profit : <?php echo array_sum(array_column($rows, 'price')); ?>
+
+<br>
+<br>
 <a href=" index.html">Add</a>
