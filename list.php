@@ -66,7 +66,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                 </td>
                 <td>
                     <a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a>
-                    <a href="raw.php?id=<?php echo $row['id']; ?>">Raw</a>
                     <a href="files.php?id=<?php echo $row['id']; ?>">Files</a>
                     <a href="delete.php?id=<?php echo $row['id']; ?>">Delete</a>
                 </td>

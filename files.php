@@ -35,11 +35,24 @@ $files = array_diff($files, array('.', '..'));
 
 ?>
 
+<h1>
+    Raw Files
+</h1>
 <div>
     <?php
-
     foreach ($raw_files as $raw_file) {
         echo "<a href='$raw_folder/$raw_file' download ><img src='$raw_folder/$raw_file' width='200px' /></a>";
+    }
+    ?>
+</div>
+
+<h1>
+    Processed Files
+</h1>
+<div>
+    <?php
+    foreach ($files as $file) {
+        echo "<a href='$folder/$file' download ><img src='$folder/$file' width='200px' /></a>";
     }
     ?>
 </div>
