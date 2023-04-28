@@ -22,12 +22,14 @@ $phone = $row['phone'];
 $price = $row['price'];
 $payment_method = $row['payment_method'];
 $folder_name = $row['folder_name'];
+$type = $row['type'];
 
 if (isset($_POST["submit"])) {
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $price = $_POST['price'];
     $payment_method = $_POST['payment_method'];
+    $type = $_POST['type'];
 
     $folder_root = "photos";
     $raw_folder_name = $folder_name . "/raw";
@@ -71,7 +73,7 @@ if (isset($_POST["submit"])) {
     $id = $_GET['id'];
 
     //update database
-    $sql = "UPDATE orders SET name='$name', phone='$phone', price='$price', payment_method='$payment_method', folder_name='$folder_name' WHERE id='$id'";
+    $sql = "UPDATE orders SET name='$name', phone='$phone', price='$price', payment_method='$payment_method', folder_name='$folder_name', type='$type' WHERE id='$id'";
     if ($conn->query($sql) === TRUE) {
         echo "Record updated successfully";
         $conn->close();
@@ -104,6 +106,10 @@ if (isset($_POST["submit"])) {
         <select name="payment_method">
             <option value="cash" <?php if ($payment_method == "cash") echo "selected"; ?>>Cash</option>
             <option value="upi" <?php if ($payment_method == "upi") echo "selected"; ?>>UPI</option>
+        </select>
+        <select name="type">
+            <option value="1" <?php if ($type == 1) echo "selected"; ?>>Polaroid</option>
+            <option value="2" <?php if ($type == 2) echo "selected"; ?>>Film Strip</option>
         </select>
         <br>
         <br>

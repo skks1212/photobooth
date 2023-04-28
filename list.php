@@ -38,7 +38,7 @@ if (isset($_POST["submit"])) {
                 Payment Method
             </th>
             <th>
-                Folder Name
+                Type
             </th>
             <th>
                 Actions
@@ -68,7 +68,13 @@ if (isset($_POST["submit"])) {
                     <?php echo $row['payment_method']; ?>
                 </td>
                 <td>
-                    <?php echo $row['folder_name']; ?>
+                    <?php
+                    if ($row['type'] == 2) {
+                        echo "Film Strip";
+                    } else {
+                        echo "Polaroid";
+                    }
+                    ?>
                 </td>
                 <td>
                     <a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a>
