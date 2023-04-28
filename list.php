@@ -41,6 +41,9 @@ if (isset($_POST["submit"])) {
                 Type
             </th>
             <th>
+                Notes
+            </th>
+            <th>
                 Actions
             </th>
         </tr>
@@ -75,6 +78,9 @@ if (isset($_POST["submit"])) {
                         echo "Polaroid";
                     }
                     ?>
+                </td>
+                <td>
+                    <?php echo $row['notes']; ?>
                 </td>
                 <td>
                     <a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a>

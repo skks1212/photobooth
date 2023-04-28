@@ -31,6 +31,7 @@ if (isset($_POST["submit"])) {
     $price = $_POST['price'];
     $payment_method = $_POST['payment_method'];
     $type = $_POST['type'];
+    $notes = $_POST['notes'];
 
     $folder_root = "photos";
     $raw_folder_name = $folder_name . "/raw";
